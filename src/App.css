@@ -1,0 +1,25 @@
+.favorites{
+  display: flex;
+  list-style-type: none;
+  background-color: olive;
+  font-weight: bold;
+  flex-flow: wrap;
+  margin: 30px;
+  border: 2px solid gainsboro;
+  align-items: center;
+}
+.initial-height {
+  height: 300px;
+}
+
+.character-list{
+  display: flex;
+  list-style-type: none;
+  flex-flow: wrap;
+  font-weight: bold;
+  margin: 30px;
+}
+
+.character-card{
+  margin: 10px;
+}
