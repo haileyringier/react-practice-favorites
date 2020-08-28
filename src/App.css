@@ -7,6 +7,7 @@
   margin: 30px;
   border: 2px solid gainsboro;
   align-items: center;
+  box-shadow:  2px 2px #888888;
 }
 .initial-height {
   height: 300px;
@@ -22,4 +23,12 @@
 
 .character-card{
   margin: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.delete{
+  background-color:darkslategray;
+  color: white;
+
 }

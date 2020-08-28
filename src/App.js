@@ -19,17 +19,38 @@ export default class App extends React.Component{
       .then(data => this.setState({characters: data.results}))
   }
   addFavorite = (character) => {
+    if(!this.state.favorites.includes(character)){
+      this.setState({
+        favorites: [...this.state.favorites, character]
+      })
+    }
+  }
+
+  removeFavorite = (character) => {
+    let filtered =  this.state.favorites.filter(favorite => favorite !== character)
+      this.setState({
+        favorites: filtered
+   })
+  }
+
+  permanentDelete = (character) => {
+    let characters = this.state.characters.filter(c => c.id !== character.id)
+    this.removeFavorite(character)
     this.setState({
-      favorites: [...this.state.favorites, character]
+      characters: characters
     })
+  //  add fetch here
   }
   
   render() {
     return (
     <div className="App">
       <h1>Rick and Morty Characters</h1>
-      <Favorites favorites={this.state.favorites} />
-      <CharacterList characters={this.state.characters} addFavorite={this.addFavorite}/>
+      <Favorites favorites={this.state.favorites} removeFavorite={this.removeFavorite} />
+      <CharacterList 
+        characters={this.state.characters} 
+        addFavorite={this.addFavorite}
+        permanentDelete={this.permanentDelete}/>
     </div>
   );
 }
